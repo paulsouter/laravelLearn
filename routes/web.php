@@ -35,3 +35,7 @@ Route::resource('customers', 'CustomerController');
 Route::resource('products', 'ProductController');
 Route::resource('sales', 'SaleController');
 Route::resource('saleItem', 'SaleItemController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

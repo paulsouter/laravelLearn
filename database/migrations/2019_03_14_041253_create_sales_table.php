@@ -17,7 +17,7 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('saleId');  
             $table->string('status');
             $table->bigInteger('customer_Id')->unsigned();
-            $table->foreign('customer_Id')->references('customerId')->on('customers');
+            $table->foreign('customer_Id')->references('id')->on('customers');
             $table->timestamps();
         });
     }

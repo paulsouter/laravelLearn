@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/addProduct');
     }
 
     /**
@@ -35,7 +35,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'desc' => 'required',
+            'category' => 'required',
+            'quantityInStock' => 'required'
+        ]);
+
+        $product = new Product;
+        $product->Name = $request->input('name');
+        $product->Desc = $request->input('desc');
+        $product->Category = $request->input('category');
+        $product->PriceList = $request->input('priceList');
+        $product->QuantityInStock = $request->input('quantityInStock');
+
+        $product->save();
+     
+        return redirect('/products')->with('success', 'Product added');
+        
     }
 
     /**
