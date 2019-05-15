@@ -6,8 +6,8 @@
        @if(count($products) >0)
                 @foreach ($products as $product)
                     <div class='card'>
-                            <p>{{$product->name}} {{$product->desc}} {{$product->category}} 
-                                 {{$product->pricelist}}  {{$product->quantityInStock}} 
+                            <p>Name: {{$product->name}}, Desc: {{$product->desc}}, Category: {{$product->category}}, 
+                                 Price: ${{$product->pricelist}},  Quantity: {{$product->quantityInStock}} 
                                  <a href='products/{{$product->productId}}' class="btn btn-default">add to cart</a></p>
                     </div>
                 @endforeach

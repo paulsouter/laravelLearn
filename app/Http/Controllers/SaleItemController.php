@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SaleItem;
+use App\Product;
+use App\User;
 
 class SaleItemController extends Controller
 {
@@ -23,7 +26,7 @@ class SaleItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/cart');
     }
 
     /**
@@ -34,7 +37,23 @@ class SaleItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'quantity' => 'required',
+        ]);
+
+
+        $product = Product::find($request->productId);
+        
+        
+        $sale = new SaleItem;
+        $sale->user_Id = auth()->user()->id;
+        $sale->product_Id = $product->productId;
+        $sale->price = $product->pricelist;
+        $sale->quantity = $request->input('quantity');
+
+        $sale->save();
+        
+        return redirect('/products')->with('success', 'sale ordered');
     }
 
     /**

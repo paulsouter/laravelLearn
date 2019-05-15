@@ -23,7 +23,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
+        // return view('pages/Product');
     }
 
     /**
@@ -34,7 +34,7 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return view('pages/addProduct');
     }
 
     /**

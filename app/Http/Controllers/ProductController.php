@@ -73,9 +73,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $amount)
     {
-        //
+        // $product = Product::find($id);
+        // $newAmount = $product->quantityInStock - $amount;
+        // $product->quantityInStock = $newAmount;
+        // $product->save();
+
+        // return redirect('/pages/products');
     }
 
     /**
